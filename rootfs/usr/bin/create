@@ -11,6 +11,7 @@ while read name; do
       gcloud container clusters create "${name}" \
         --machine-type $MACHINE_TYPE \
         --num-nodes $NUM_NODES \
+        --subnetwork $SUBNETWORK \
         --no-async &> /dev/null
 
       if [ -n "${VERSION}" ]; then
